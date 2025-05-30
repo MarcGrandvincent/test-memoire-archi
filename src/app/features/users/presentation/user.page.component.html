@@ -1,0 +1,18 @@
+<section class="card">
+  <h2>Utilisateurs</h2>
+
+  @if(state().loading) {
+    <p>Chargement...</p>
+  }
+  @if(state().error) {
+    <p class="error">{{ state().error }}</p>
+  }
+
+  <app-user-list [users]="state().users"></app-user-list>
+
+  <form (ngSubmit)="onSubmit()">
+    <input [(ngModel)]="name" name="name" placeholder="Nom" />
+    <input [(ngModel)]="email" name="email" placeholder="Email" />
+    <button type="submit">Ajouter</button>
+  </form>
+</section>
